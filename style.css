@@ -1,0 +1,257 @@
+:root {
+            --bg-color: #f5f5f5;
+            --calc-bg: white;
+            --text-color: black;
+            --btn-bg: #fff;
+            --btn-shadow: rgba(0, 0, 0, 0.2);
+            --operator-color: orange;
+            --equal-bg: orange;
+            --equal-text: white;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --calc-bg: #1e1e1e;
+            --text-color: white;
+            --btn-bg: #2c2c2c;
+            --btn-shadow: rgba(255, 255, 255, 0.2);
+            --operator-color: #ff9800;
+            --equal-bg: #ff9800;
+            --equal-text: white;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: var(--bg-color);
+            transition: background 0.3s ease;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .calculator {
+            width: 100%;
+            max-width: 350px;
+            background: var(--calc-bg);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px var(--btn-shadow);
+            transition: background 0.3s ease;
+        }
+
+        .display {
+            width: 100%;
+            height: 60px;
+            font-size: 2rem;
+            text-align: right;
+            margin-bottom: 10px;
+            border: none;
+            background: none;
+            color: var(--text-color);
+            padding: 10px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: var(--btn-bg);
+            color: var(--text-color);
+            box-shadow: 0 2px 5px var(--btn-shadow);
+            transition: background 0.3s ease, color 0.3s ease, transform 0.1s ease;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .operator {
+            color: var(--operator-color);
+        }
+
+        .equal {
+            background: var(--equal-bg);
+            color: var(--equal-text);
+            grid-column: span 2;
+            width: 100%;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+        }
+
+        .theme-toggle input {
+            display: none;
+        }
+
+        .theme-toggle svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--text-color);
+            transition: transform 0.5s ease-in-out, fill 0.3s ease-in-out;
+        }
+
+        .dark-mode .theme-toggle svg {
+            transform: rotate(180deg);
+        }
+
+        #subscription {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            text-align: center;
+        }
+       .text {
+            color: rgb(44, 44, 44);
+            font-size: clamp(10px, 0.8vw, 14px);
+            font-weight: 400;
+            margin: 2px 0;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .text {
+            color: #cfcfcf;
+        }
+
+        #hrt {
+            font-size: clamp(12px, 1.2vw, 18px);
+            color: rgb(255, 69, 69);
+            font-weight: bold;
+            margin: -6px 0;
+            transition: color 0.3s ease;
+        }
+        .dark-mode #hrt {
+            color: #ff6b6b;
+        }
+
+        .name {
+            font-size: clamp(12px, 1.2vw, 16px);
+            font-weight: bold;
+            font-family: "Montserrat", sans-serif;
+            color: black;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .name {
+            color: white;
+        }
+
+        @media (max-width: 580px) {
+            .calculator {
+                max-width: 300px;
+                padding: 15px;
+            }
+
+            button {
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                height: 35px;
+                widows: 30px;
+            }
+            
+            .theme-toggle svg {
+            width: 34px;
+            height: 34px;
+            }
+            
+            .display {
+            width: 100%;
+            height: 60px;
+            font-size: 1.6rem;
+            margin-bottom: 9.3px;
+            padding: 9.3px;
+        }
+        }
+        
+        @media (max-width: 400px) {
+            .calculator {
+                max-width: 290px;
+                padding: 11px;
+            }
+
+            button {
+                padding: 7px;
+                font-size: 0.6rem;
+            }
+
+            .theme-toggle {
+                top: 5px;
+                right: -1px;
+                height: 30px;
+                widows: 30px;
+            }
+            
+             .theme-toggle svg {
+            width: 30px;
+            height: 30px;
+            }
+            
+             .display {
+            width: 100%;
+            height: 55px;
+            font-size: 1.2rem;
+            margin-bottom: 8.9px;
+            padding: 8.9px;
+        }
+        }
+        
+        @media (max-width: 180px) {
+            .calculator {
+                max-width: 400px;
+                padding: 6px;
+            }
+
+            button {
+                padding: 3px;
+                font-size: 0.3rem;
+            }
+            
+            .display {
+            width: 100%;
+            height: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 8.6px;
+            padding: 8.6px;
+        }
+        
+        #warningMessage {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: red;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 1000;
+    text-align: center;
+}
+        }
